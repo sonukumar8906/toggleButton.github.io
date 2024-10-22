@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>toggle_button</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      flex-direction: column;
+    }
+    h1{
+        margin-top: 88px;
+  font-size: 5rem;
+    }
+    i {
+      color: yellow;
+      font-size: 30px;
+      padding: 0 3px;
+    }
+
+    #checkbox {
+      visibility: hidden;
+    }
+    .label {
+      background: black;
+      height: 47px;
+      width: 100px;
+      border-radius: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      padding: 0 2px;
+    }
+    .ball {
+      background: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 45px;
+      position: absolute;
+      transition: transform 0.2s linear;
+    }
+    .checkbox:checked + .label .ball{
+        transform: translateX(51px);
+    }
+
+    body.dark{
+        background-color: rgb(56, 17, 17);
+    }
+
+    body.h2{
+        color: white;
+    }
+  </style>
+  <body>
+    <input type="checkbox" id="checkbox" class="checkbox" />
+    <label for="checkbox" class="label">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      <div class="ball"></div>
+    </label>
+    <h1>Click on the Toggle Button</h1>
+    <script>
+    const checKbox = document.getElementById("checkbox");
+    const h1 = document.querySelector('h1')
+    checKbox.addEventListener('change', () =>{
+        if(checKbox.checked){
+            document.body.classList.add('dark');
+            h1.style.color = 'white';
+        }else{
+            document.body.classList.remove('dark');
+            h1.style.color = 'black';
+        }
+    })
+    </script>
+  </body>
+</html>
